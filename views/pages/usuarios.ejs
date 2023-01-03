@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include('../components/head'); %>
+
+<body>
+      <%- include('../components/header', {pagina: 'sobre'}); %>
+      <main>
+            <div class="jumbotron">
+                  <h1>Objetos passados na requisição:</h1>
+                  
+                  <li>
+                        <%- usuarios %> 
+                  </li>
+               
+            </div>
+      </main>
+
+      <%- include('../components/footer'); %>
+</body>
+
+</html>

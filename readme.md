@@ -17,7 +17,7 @@
 ```
  * *Todas as alterações que serão feitas em EJS não tem a necesario parar o servidor, apenas em arquivos JS, podendo ser contornado com a instalação de outras bibliotecas como por exemplo o "nodemon"*
 
-### 5° Passando objetos:
+### 5° Passando objetos por arquivos:
 
       Os objetos são basicamente pequenos trechos de codigo ou informações que podem ser disponibilizadas em outras partes da sua estrutura. Com o EJS é possivel reaproveitar esses pequenos codigos passando eles por parametros no "include". 
       
@@ -44,4 +44,28 @@
 
 Com esse condicional ele irá verificar se a pagina é diferente de indefinida e caso seja, ele irá atribuir o objeto pagina, que definimos como home.
 
+### 6° Passando objetos por rotas:
 
+É possível passar arquivos por rotas utilizando a metodologia de objetos, assim como passamos no header e chamamos nas paginas o breadcrum, é possivel passar ele na rota e exibir ele na tela em formato html.
+
+Para isso criamos uma nova rota no arquivo server.js:
+
+```
+      app.get("/usuarios", function (req, res) {
+            res.render("pages/usuarios", {usuarios: ['Pedro', 'Paulo', 'kratos', 'Atreus']});
+      });
+```
+é no arquivo usuarios, chamaremos o objeto que foi criado na resposta da requisição. 
+
+```
+      <% for(usuarios of usuarios){ %> 
+            <li>
+                  <%- usuarios %> 
+            </li>
+      <% } %>
+```
+Utilizei um for para poder renderizar os usuarios na ordem em formato de listagem, um por um. Mas caso queira utilizar so objeto, utilize o exemplo abaixo:
+
+```
+      <%- usuarios %> 
+```

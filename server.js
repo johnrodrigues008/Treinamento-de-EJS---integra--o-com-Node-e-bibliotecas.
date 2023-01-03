@@ -15,6 +15,11 @@ app.get("/sobre", function(req, res){
       res.render("pages/about");
 });
 
+// 3° Rota
+app.get("/usuarios", function (req, res) {
+      res.render("pages/usuarios", {usuarios: ['Pedro', 'Paulo', 'João', 'newgate']});
+});
+
 // Falar em qual porta o express irá escutar para poder renderizar os arquivos
 app.listen(4201);
 console.log("Servidor rodando na porta http://localhost:4201/");
